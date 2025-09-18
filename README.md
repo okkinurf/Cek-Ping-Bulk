@@ -1,9 +1,59 @@
-# Cek-Ping-Bulk
-Pengecekan Ping secara Bulk 
+# 📡 IP Status Checker
 
-Buat File list-ip.txt untuk menyimpan ip ip nya dengan format berikut
-![image](https://github.com/user-attachments/assets/34b7cdba-88d1-4c8d-94c6-f9dd07b80748)
+Script sederhana untuk mengecek status **UP/DOWN** dari list IP menggunakan `ping`.  
+Setiap IP akan dicek, hasilnya ditampilkan dengan warna hijau (UP) atau merah (DOWN) lengkap dengan timestamp.
 
-Jalankan file ./cekip.sh nanti nya akan output sebagai berikut
-![image](https://github.com/user-attachments/assets/62259bd2-2590-4ce7-8885-218d4356c994)
+---
 
+## 📥 Instalasi
+
+Clone repo atau simpan script:
+
+```bash
+git clone https://github.com/username/ip-status-checker.git
+cd ip-status-checker
+chmod +x check-ip.sh
+```
+
+## 📋 Persiapan
+
+Buat file list-ip.txt yang berisi daftar IP.
+Contoh isi file:
+```
+8.8.8.8
+1.1.1.1
+192.168.1.1/23
+10.10.10.10
+```
+
+👉 Script akan otomatis menghapus /23 atau subnet lain, hanya mengambil IP utamanya.
+
+## ▶️ Cara Menjalankan
+
+```
+./check-ip.sh
+```
+
+Output contoh:
+```
+8.8.8.8            : UP !!      [2025-09-19 00:10:01]
+1.1.1.1            : UP !!      [2025-09-19 00:10:01]
+192.168.1.1        : DOWN       [2025-09-19 00:10:01]
+10.10.10.10        : UP !!      [2025-09-19 00:10:01]
+```
+
+## ⚙️ Fitur
+
+✅ Warna output (Hijau = UP, Merah = DOWN)
+
+✅ Multi IP dari file list-ip.txt
+
+✅ Parallel check (lebih cepat)
+
+✅ Ada timestamp hasil pengecekan
+
+## 🛠️ Dibangun dengan
+
+bash
+ping
+awk
